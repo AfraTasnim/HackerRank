@@ -12,7 +12,7 @@ def getReducedString(String inputString) {
         if (currentString[i] == currentString[i + 1]) {
             def targetString = currentString[i] + currentString[i + 1]
             currentString = currentString.replaceAll(targetString, "")
-          
+            i=0
             if (currentString.length() == 0) {
                 def message = "Empty String"
                 return message
