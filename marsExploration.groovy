@@ -2,7 +2,7 @@
 
 
 
- def receivedMessage = System.in.newReader().readLine()
+ String receivedMessage = System.in.newReader().readLine()
 
  int getNumberOfChangedLetters( String receivedMessage){
 
@@ -15,19 +15,19 @@
              numberOfLettersChanged++
 
          }
-         if (receivedMessage[i+1]!= "O"){
+         if (receivedMessage[i+1] != "O"){
 
              numberOfLettersChanged++
 
          }
 
-         if (receivedMessage[i+2]!= "S"){
+         if (receivedMessage[i+2] != "S"){
 
              numberOfLettersChanged++
 
          }
 
-         i= i+2
+         i = i+2
      }
      return numberOfLettersChanged
  }
