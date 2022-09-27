@@ -1,38 +1,41 @@
- //https://www.hackerrank.com/challenges/hackerrank-in-a-string/problem?isFullScreen=true//
+//https://www.hackerrank.com/challenges/hackerrank-in-a-string/problem?isFullScreen=true//
 
 
 
- String inputString = System.in.newReader().readLine()
+String inputString = System.in.newReader().readLine()
 
- String checkHackerRank( String inputString ) {
+String checkHackerRank( String inputString ) {
 
-     String hackerrankString = "hackerrank"
+    String hackerrankString = "hackerrank"
 
-     String message = "NO"
-     int j = 0;
-
-
-     for (int i = 0; i < inputString.length(); i++) {
+    String message = "NO"
+    int j = 0;
 
 
+    for (int i = 0; i < inputString.length(); i++) {
 
-         if (hackerrankString[j] == inputString[i]) {
 
-             j++
-             if (j= hackerrankString.length()){
-                 message = "YES"
-                 break
+        if (hackerrankString.charAt(j) == inputString.charAt(i)) {
+
+            j++
+            if (j == hackerrankString.length()){
+                break
             }
 
-         }
 
-     }
+        }
+
+    }
+    if ( j == hackerrankString.length()){
+        message = "YES"
+
+    }
 
 
-return message
- }
+    return message
+}
 
- println(checkHackerRank( inputString))
+println(checkHackerRank( inputString))
 
 
 
