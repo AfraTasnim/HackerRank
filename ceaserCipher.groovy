@@ -1,39 +1,54 @@
- String input = System.in.newReader().readLine()
+/*https://www.hackerrank.com/challenges/caesar-cipher-1/problem?isFullScreen=true*/
 
- int key = System.in.newReader().readLine() as int
- println(key)
+String input = System.in.newReader().readLine()
 
- def getCipherText(String input, int key)
- {
-     String alphabets = "abcdefghijklmnopqrstuvwxyz"
-    def index= 0
+int key = System.in.newReader().readLine() as int
 
-     for (int i = 0; i< input.length(); i++){
+def getCipherText(String input, int key)
+{
+    String alphabetsLowercase = "abcdefghijklmnopqrstuvwxyz"
+    String alphabetsUppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
-     Character currentCharacter = input.charAt(i)
-
-             index = alphabets.findIndexOf {it-> it == (currentCharacter)}
+    def output = []
 
 
 
-        int currentIndex = (index+key) % 26
+    for (int i = 0; i< input.length(); i++) {
+        if (input.charAt(i).isLowerCase() == true) {
 
-         Character replacedCharacter = alphabets.charAt(currentIndex)
+            Character currentCharacter = input.charAt(i)
 
-         input[i] = replacedCharacter
+            int index = alphabetsLowercase.findIndexOf { it -> it == (currentCharacter) }
+
+            int currentIndex = (index + key) % 26
+
+            Character replacedCharacter = alphabetsLowercase.charAt(currentIndex)
+            output.add(replacedCharacter)
 
 
+        }
+        if (input.charAt(i).isUpperCase()== true){
+
+            Character currentCharacter = input.charAt(i)
+
+            int index = alphabetsUppercase.findIndexOf { it -> it == (currentCharacter) }
+
+            int currentIndex = (index + key) % 26
+
+            Character replacedCharacter = alphabetsUppercase.charAt(currentIndex)
+            output.add(replacedCharacter)
 
 
-         println(currentCharacter)
-         println(key)
-         println(index)
-         println(currentIndex)
-         println(replacedCharacter)
-         println(input[i])
+        }
+        if(input.charAt(i).isLowerCase() == false && input.charAt(i).isUpperCase()== false){
 
-     }
-         return input
-     }
+            output.add(input.charAt(i))
+        }
 
- println(getCipherText( input, key))
+
+    }
+    output= output.join()
+    return output
+}
+
+println(getCipherText( input, key))
