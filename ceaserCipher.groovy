@@ -4,7 +4,7 @@ String input = System.in.newReader().readLine()
 
 int key = System.in.newReader().readLine() as int
 
-def getCipherText(String input, int key)
+def getCipherText(String s, int k)
 {
     String alphabetsLowercase = "abcdefghijklmnopqrstuvwxyz"
     String alphabetsUppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -13,36 +13,36 @@ def getCipherText(String input, int key)
 
 
 
-    for (int i = 0; i< input.length(); i++) {
-        if (input.charAt(i).isLowerCase() == true) {
+    for (int i = 0; i< s.length(); i++) {
+        if (s.charAt(i).isLowerCase() == true) {
 
-            Character currentCharacter = input.charAt(i)
+            Character currentCharacter = s.charAt(i)
 
             int index = alphabetsLowercase.findIndexOf { it -> it == (currentCharacter) }
 
-            int currentIndex = (index + key) % 26
+            int currentIndex = (index + k) % 26
 
             Character replacedCharacter = alphabetsLowercase.charAt(currentIndex)
             output.add(replacedCharacter)
 
 
         }
-        if (input.charAt(i).isUpperCase()== true){
+        if (s.charAt(i).isUpperCase()== true){
 
-            Character currentCharacter = input.charAt(i)
+            Character currentCharacter = s.charAt(i)
 
             int index = alphabetsUppercase.findIndexOf { it -> it == (currentCharacter) }
 
-            int currentIndex = (index + key) % 26
+            int currentIndex = (index + k) % 26
 
             Character replacedCharacter = alphabetsUppercase.charAt(currentIndex)
             output.add(replacedCharacter)
 
 
         }
-        if(input.charAt(i).isLowerCase() == false && input.charAt(i).isUpperCase()== false){
+        if(s.charAt(i).isLowerCase() == false && s.charAt(i).isUpperCase()== false){
 
-            output.add(input.charAt(i))
+            output.add(s.charAt(i))
         }
 
 
